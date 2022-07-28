@@ -7,14 +7,34 @@ namespace AlgorithmsCenter.MessageTemplate
 {
     public class CustomMessagesTemplate
     {
+        #region Properties
+        /// <summary>
+        ///  List of all algorithms which app contains.
+        /// </summary>
         List<string> AlogirthmsList = new List<string>();
 
+        /// <summary>
+        ///  Get current background console color.
+        /// </summary>
+        ConsoleColor background = Console.BackgroundColor;
+
+        /// <summary>
+        ///  Get current foreground console color.
+        /// </summary>
+        ConsoleColor foreground = Console.ForegroundColor;
+
+        #endregion
+
+        #region Methods
         /// <summary>
         ///  Copyrights info
         /// </summary>
         protected void CopyrightsInfo()
         {
-
+            Console.WriteLine("*******************************************************************\n" +
+                "**************** APP AND SOURCE CODE IS FULLY FREE ****************\n" +
+                "********************** AUTHOR: MACIEJ MARZEC **********************\n" +
+                "*******************************************************************");
         }
 
         /// <summary>
@@ -52,5 +72,6 @@ namespace AlgorithmsCenter.MessageTemplate
                 Console.WriteLine($"-{item}");
             }
         }
+        #endregion
     }
 }
