@@ -1,0 +1,16 @@
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\AlgorithmsCenter.exe
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\AlgorithmsCenter.deps.json
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\AlgorithmsCenter.runtimeconfig.json
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\AlgorithmsCenter.runtimeconfig.dev.json
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\AlgorithmsCenter.dll
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\ref\AlgorithmsCenter.dll
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\bin\Debug\net5.0\AlgorithmsCenter.pdb
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.csproj.AssemblyReference.cache
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.AssemblyInfoInputs.cache
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.AssemblyInfo.cs
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.csproj.CoreCompileInputs.cache
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.dll
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\ref\AlgorithmsCenter.dll
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.pdb
+C:\Users\Maciek\Documents\GitHub\RecruitmentTasks\AlgorithmsCenter\AlgorithmsCenter\obj\Debug\net5.0\AlgorithmsCenter.genruntimeconfig.cache
