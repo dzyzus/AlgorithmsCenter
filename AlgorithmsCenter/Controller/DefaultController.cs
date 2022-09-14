@@ -1,4 +1,5 @@
 ﻿#region Usings
+using AlgorithmsCenter.Algorithms;
 using AlgorithmsCenter.MessageTemplate;
 using System;
 #endregion
@@ -51,7 +52,7 @@ namespace AlgorithmsCenter.Controller
                 switch (input)
                 {
                     case "-help":
-                        HelpInfo();
+                        AlgorithmsCommands();
                         Console.Write("Type command: ");
                         input = Console.ReadLine();
                         break; ;
@@ -70,6 +71,34 @@ namespace AlgorithmsCenter.Controller
                         break; ;
                 }
             }
+        }
+        private void AlgorithmsCommands()
+        {
+            HelpInfo();
+            Console.Write("Type command: ");
+            input = Console.ReadLine();
+            while (loopContinue)
+            {
+                switch (input)
+                {
+                    case "-fibonacci":
+                        FibonacciNumbers fibonacciNumbers = new FibonacciNumbers();
+                        fibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
+                        loopContinue = false;
+                        break;
+                    case "-back":
+                        loopContinue = false;
+                        break;
+                    default:
+                        Console.WriteLine("Incorrect command!\n");
+                        Console.Write("Type command: ");
+                        input = Console.ReadLine();
+                        break;
+                }
+            }
+
+            loopContinue = true;
+            BasicCommands();
         }
     }
 }

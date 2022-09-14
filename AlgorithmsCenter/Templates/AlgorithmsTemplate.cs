@@ -1,13 +1,10 @@
-﻿namespace AlgorithmsCenter.Templates
+﻿using AlgorithmsCenter.Algorithms;
+
+namespace AlgorithmsCenter.Templates
 {
     public class AlgorithmsTemplate
     {
         #region Fields and variables
-
-        /// <summary>
-        /// Name of algorithm
-        /// </summary>
-        private string AlgorithmName = "Fibonacci numbers";
 
         #endregion
 
@@ -27,11 +24,10 @@
         /// Path to decrypt text save
         /// </summary>
         protected string DecrypteTextPath { get; set; }
+
         #endregion
 
         #region methods
-
-
 
         #endregion
     }

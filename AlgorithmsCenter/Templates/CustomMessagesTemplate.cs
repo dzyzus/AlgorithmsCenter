@@ -1,22 +1,25 @@
 ﻿#region Usings
+using AlgorithmsCenter.Algorithms;
+using AlgorithmsCenter.Templates;
 using System;
 using System.Collections.Generic;
 #endregion
 
 namespace AlgorithmsCenter.MessageTemplate
 {
-    public class CustomMessagesTemplate
+    public class CustomMessagesTemplate : AlgorithmsTemplate
     {
         #region Properties
-        /// <summary>
-        ///  List of all algorithms which app contains.
-        /// </summary>
-        protected List<string> AlogirthmsList = new List<string>();
 
         /// <summary>
         ///  Input for selected command.
         /// </summary>
         protected string input = "";
+
+        /// <summary>
+        ///  List of all algorithms which app contains.
+        /// </summary>
+        protected List<string> AlogirthmsList = new List<string>();
 
         #endregion
 
@@ -62,7 +65,10 @@ namespace AlgorithmsCenter.MessageTemplate
         /// </summary>
         protected void HelpInfo()
         {
-            Console.WriteLine("Test help");
+            Console.WriteLine("*******************************************************************\n" +
+                "-fibonacci for fibonacci algorithm\n" +
+                "-back go back to previously menu\n" +
+                "*******************************************************************");
         }
 
         /// <summary>
@@ -88,6 +94,8 @@ namespace AlgorithmsCenter.MessageTemplate
         /// </summary>
         private void PrintList(List<string> listToPrint)
         {
+            FillAlgorithmsList();
+
             if(listToPrint.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -98,10 +106,25 @@ namespace AlgorithmsCenter.MessageTemplate
 
                 return;
             }
-            foreach(string item in listToPrint)
+            Console.WriteLine("*******************************************************************");
+            foreach (string item in listToPrint)
             {
-                Console.WriteLine($"-{item}");
+                //TODO
+                //Count number of letters and print equal numbers of *
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"-- {item}");
+                Console.ResetColor();
+
             }
+            Console.WriteLine("*******************************************************************");
+
+        }
+        private void FillAlgorithmsList()
+        {
+            //TODO
+            //make object re-usage
+            FibonacciNumbers fibonacciNumbers = new FibonacciNumbers();
+            AlogirthmsList.Add(fibonacciNumbers.FibonacciNumbersTitle);
         }
         #endregion
     }

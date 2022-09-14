@@ -1,4 +1,5 @@
 ﻿#region Usings
+using AlgorithmsCenter.Algorithms;
 using AlgorithmsCenter.Controller;
 #endregion
 
