@@ -10,6 +10,8 @@ namespace AlgorithmsCenter.Controller
     {
         #region Fields and variables
 
+        public FibonacciNumbers fibonacciNumbers { get; set; }
+
         /// <summary>
         /// if true, program is still runing
         /// </summary>
@@ -24,7 +26,7 @@ namespace AlgorithmsCenter.Controller
         /// </summary>
         public DefaultController()
         {
-            //Constructor
+            this.fibonacciNumbers = new FibonacciNumbers();
         }
 
         #endregion
@@ -82,8 +84,7 @@ namespace AlgorithmsCenter.Controller
                 switch (input)
                 {
                     case "-fibonacci":
-                        FibonacciNumbers fibonacciNumbers = new FibonacciNumbers();
-                        fibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
+                        this.fibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
                         loopContinue = false;
                         break;
                     case "-back":

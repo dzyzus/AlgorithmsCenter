@@ -1,31 +1,39 @@
 ﻿#region Usings
 using AlgorithmsCenter.Algorithms;
-using AlgorithmsCenter.Templates;
 using System;
 using System.Collections.Generic;
 #endregion
 
 namespace AlgorithmsCenter.MessageTemplate
 {
-    public class CustomMessagesTemplate : AlgorithmsTemplate
+    public class CustomMessagesTemplate
     {
         #region Properties
 
         /// <summary>
-        ///  Input for selected command.
+        /// Input for selected command.
         /// </summary>
         protected string input = "";
 
         /// <summary>
-        ///  List of all algorithms which app contains.
+        /// List of all algorithms which app contains.
         /// </summary>
         protected List<string> AlogirthmsList = new List<string>();
 
+        /// <summary>
+        /// Count stars on the left.
+        /// </summary>
+        private int leftStars = 0;
+
+        /// <summary>
+        /// Count stars on the right.
+        /// </summary>
+        private int rightStars = 0;
         #endregion
 
         #region Methods
         /// <summary>
-        ///  Copyright info
+        /// Copyright info.
         /// </summary>
         protected void CopyrightsInfo()
         {
@@ -38,7 +46,7 @@ namespace AlgorithmsCenter.MessageTemplate
         }
 
         /// <summary>
-        ///  Welcome message on app start
+        /// Welcome message on app start.
         /// </summary>
         protected void WelcomeMessage()
         {
@@ -49,7 +57,7 @@ namespace AlgorithmsCenter.MessageTemplate
         }
 
         /// <summary>
-        ///  Basic info about app
+        /// Basic info about app.
         /// </summary>
         protected void BasicInfo()
         {
@@ -61,7 +69,7 @@ namespace AlgorithmsCenter.MessageTemplate
         }
 
         /// <summary>
-        ///  Information with more specific commands
+        /// Information with more specific commands.
         /// </summary>
         protected void HelpInfo()
         {
@@ -72,14 +80,15 @@ namespace AlgorithmsCenter.MessageTemplate
         }
 
         /// <summary>
-        ///  Information about app
+        /// Information about app.
         /// </summary>
         protected void AppDescription()
         {
             Console.WriteLine("Test description");
         }
+
         /// <summary>
-        ///  Information about basic commands
+        /// Information about basic commands.
         /// </summary>
         protected virtual void BasicCommands()
         {
@@ -89,13 +98,20 @@ namespace AlgorithmsCenter.MessageTemplate
                 "-quit for exit app\n" +
                 "*******************************************************************");
         }
+
         /// <summary>
-        ///  Display list of available algorithms
+        /// Fill algorithms list.
+        /// </summary>
+        protected void FillAlgorithmsList(string algorithm)
+        {
+            AlogirthmsList.Add(algorithm);
+        }
+
+        /// <summary>
+        /// Display list of available algorithms.
         /// </summary>
         private void PrintList(List<string> listToPrint)
         {
-            FillAlgorithmsList();
-
             if(listToPrint.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -109,22 +125,43 @@ namespace AlgorithmsCenter.MessageTemplate
             Console.WriteLine("*******************************************************************");
             foreach (string item in listToPrint)
             {
-                //TODO
-                //Count number of letters and print equal numbers of *
+                this.CountHowManyStars(item);
+                string left = new string('*', leftStars);
+                string right = new string('*', rightStars);
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"-- {item}");
+                Console.WriteLine($"{left} {item} {right}");
                 Console.ResetColor();
 
             }
             Console.WriteLine("*******************************************************************");
 
         }
-        private void FillAlgorithmsList()
+
+        /// <summary>
+        /// Count how many stars is to print.
+        /// </summary>
+        /// <param name="word">
+        /// Count chars in given word.
+        /// </param>
+        private void CountHowManyStars(string word)
         {
-            //TODO
-            //make object re-usage
-            FibonacciNumbers fibonacciNumbers = new FibonacciNumbers();
-            AlogirthmsList.Add(fibonacciNumbers.FibonacciNumbersTitle);
+            const int stars = 68;
+            const int twoSide = 2;
+            const int starsForSide = stars / 2;
+            const int rightSideLess = 1;
+            const int space = 1;
+            int count = word.Length;
+
+            if(count % 2 == 0)
+            {
+                rightStars = starsForSide - (count/twoSide) - space;
+                leftStars = rightStars - space;
+            }
+            else
+            {
+                rightStars = starsForSide - (count/twoSide) - space;
+                leftStars = rightStars - rightSideLess - space;
+            }
         }
         #endregion
     }

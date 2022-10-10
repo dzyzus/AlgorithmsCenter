@@ -1,6 +1,7 @@
 ﻿#region Usings
 using AlgorithmsCenter.Algorithms;
 using AlgorithmsCenter.Controller;
+using AlgorithmsCenter.MessageTemplate;
 #endregion
 
 namespace AlgorithmsCenter
