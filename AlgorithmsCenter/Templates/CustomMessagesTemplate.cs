@@ -75,10 +75,11 @@
         /// </summary>
         protected void HelpInfo()
         {
-            Console.WriteLine("*******************************************************************\n" +
+            Console.WriteLine("\n*******************************************************************\n\n" +
                 "-fibonacci for fibonacci algorithm\n" +
-                "-back go back to previously menu\n" +
-                "*******************************************************************");
+                "-bubblesort for bubble sort algorithm\n" +
+                "-back go back to previously menu\n\n" +
+                "*******************************************************************\n");
         }
 
         /// <summary>
@@ -86,7 +87,7 @@
         /// </summary>
         protected void AppDescription()
         {
-            Console.WriteLine("Test description");
+            Console.WriteLine("\nTest description\n");
         }
 
         /// <summary>
@@ -94,11 +95,22 @@
         /// </summary>
         protected virtual void BasicCommands()
         {
-            Console.WriteLine("*******************************************************************\n" +
+            Console.WriteLine("*******************************************************************\n\n" +
                 "-help for more information\n" +
                 "-description for more information about app\n" +
                 "-quit for exit app\n" +
-                "*******************************************************************");
+                "\n*******************************************************************\n");
+        }
+
+        /// <summary>
+        /// Information about algorithm.
+        /// </summary>
+        protected virtual void AlgorithmInformations(string description)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("\nINFORMATIONS ABOUT ALGORITHM");
+            Console.WriteLine(description + "\n");
+            Console.ResetColor();
         }
 
         /// <summary>
@@ -135,7 +147,7 @@
         /// Count how many stars is to print.
         /// </summary>
         /// <param name="word">
-        /// Count chars in given word.
+        /// Count chars in given word.gi
         /// </param>
         private void CountHowManyStars(string word)
         {

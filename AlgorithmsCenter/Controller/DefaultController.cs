@@ -32,6 +32,17 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the BubbleSort algorithm.
+        /// </summary>
+        public BubbleSort BubbleSort
+        {
+            get
+            {
+                return new BubbleSort();
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -55,28 +66,28 @@
         {
             base.BasicCommands();
             Console.Write("Type command: ");
-            input = Console.ReadLine();
-            while (loopContinue)
+            this.input = Console.ReadLine();
+            while (this.loopContinue)
             {
-                switch (input)
+                switch (this.input)
                 {
                     case "-help":
                         AlgorithmsCommands();
                         Console.Write("Type command: ");
-                        input = Console.ReadLine();
+                        this.input = Console.ReadLine();
                         break; ;
                     case "-description":
                         AppDescription();
                         Console.Write("Type command: ");
-                        input = Console.ReadLine();
+                        this.input = Console.ReadLine();
                         break;
                     case "-quit":
-                        loopContinue = false;
+                        this.loopContinue = false;
                         break;
                     default:
-                        Console.WriteLine("Incorrect command!\n");
+                        Console.WriteLine("\nIncorrect command!\n");
                         Console.Write("Type command: ");
-                        input = Console.ReadLine();
+                        this.input = Console.ReadLine();
                         break; ;
                 }
             }
@@ -89,28 +100,34 @@
         {
             HelpInfo();
             Console.Write("Type command: ");
-            input = Console.ReadLine();
-            while (loopContinue)
+            this.input = Console.ReadLine();
+            while (this.loopContinue)
             {
                 switch (input)
                 {
                     case "-fibonacci":
+                        this.AlgorithmInformations(this.FibonacciNumbers.AlgorithmDescription);
                         this.FibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
-                        loopContinue = false;
+                        this.loopContinue = false;
+                        break;
+                    case "-bubblesort":
+                        this.AlgorithmInformations(this.BubbleSort.AlgorithmDescription);
+                        this.BubbleSort.GetNumbersToSort();
+                        this.loopContinue = false;
                         break;
                     case "-back":
-                        loopContinue = false;
+                        this.loopContinue = false;
                         break;
                     default:
-                        Console.WriteLine("Incorrect command!\n");
+                        Console.WriteLine("\nIncorrect command!\n");
                         Console.Write("Type command: ");
-                        input = Console.ReadLine();
+                        this.input = Console.ReadLine();
                         break;
                 }
             }
 
-            loopContinue = true;
-            BasicCommands();
+            this.loopContinue = true;
+            this.BasicCommands();
         }
 
         /// <summary>
@@ -118,6 +135,7 @@
         /// </summary>
         protected void FillAlgorithmsList()
         {
+            this.AlogirthmsList.Add(this.BubbleSort.AlgorithmTitle);
             this.AlogirthmsList.Add(FibonacciNumbers.AlgorithmTitle);
         }
 

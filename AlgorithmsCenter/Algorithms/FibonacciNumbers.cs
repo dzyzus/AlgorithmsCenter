@@ -9,14 +9,12 @@
 
     #endregion
 
+    /// <summary>
+    /// Implementation of Fibonacci Numbers algorithm.
+    /// </summary>
     public class FibonacciNumbers : AlgorithmsTemplate
     {
         #region Fields and Variables
-
-        /// <summary>
-        /// Used to chceck user input.
-        /// </summary>
-        private bool correctInput = false;
 
         /// <summary>
         /// First numbers of Fibonacci.
@@ -67,12 +65,12 @@
 
             if (FibonacciNumbersHelper.Contains(NumberToCheck))
             {
-                Console.WriteLine("That number belongs tu Fibonacci Numbers!");
+                Console.WriteLine("That number belongs tu Fibonacci Numbers!\n");
                 return;
             }
             else
             {
-                Console.WriteLine("Oops! That number does not exist on Fibonacci Numbers list");
+                Console.WriteLine("Oops! That number does not exist on Fibonacci Numbers list\n");
                 return;
             }
         }
@@ -84,13 +82,15 @@
         {
             int fibonacciNumber = 0;
 
-            while (!correctInput)
+            while (!this.correctInput)
             {
                 Console.Write("Please, insert the number which u want to check: ");
                 string numberToCheck = Console.ReadLine();
-                correctInput = int.TryParse(numberToCheck, out fibonacciNumber);
-                if (!correctInput)
+                this.correctInput = int.TryParse(numberToCheck, out fibonacciNumber);
+                if (!this.correctInput)
+                {
                     Console.WriteLine("Wrong input! You need to write a number!");
+                }
             }
 
             return fibonacciNumber;
@@ -102,12 +102,13 @@
         /// </summary>
         private void FibonacciAlgorithm()
         {
-            NumberToCheck = GetFibonacciNumber();
+            this.NumberToCheck = GetFibonacciNumber();
 
-            while (FibonacciNumbersHelper.Last() <= NumberToCheck)
+            while (FibonacciNumbersHelper.Last() <= this.NumberToCheck)
             {
-                int lastNumberOnList = FibonacciNumbersHelper.Count();
-                FibonacciNumbersHelper.Add((FibonacciNumbersHelper[lastNumberOnList - 1] + FibonacciNumbersHelper[lastNumberOnList - 2]));
+                int lastNumberOnList = this.FibonacciNumbersHelper.Count();
+                this.FibonacciNumbersHelper.Add(
+                    (this.FibonacciNumbersHelper[lastNumberOnList - 1] + this.FibonacciNumbersHelper[lastNumberOnList - 2]));
             }
         }
 
