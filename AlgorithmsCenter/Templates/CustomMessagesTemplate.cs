@@ -1,14 +1,15 @@
-﻿#region Usings
-using AlgorithmsCenter.Algorithms;
-using System;
-using System.Collections.Generic;
-#endregion
-
-namespace AlgorithmsCenter.MessageTemplate
+﻿namespace AlgorithmsCenter.MessageTemplate
 {
+    #region Usings
+
+    using System;
+    using System.Collections.Generic;
+
+    #endregion
+
     public class CustomMessagesTemplate
     {
-        #region Properties
+        #region Fields and variables
 
         /// <summary>
         /// Input for selected command.
@@ -29,6 +30,7 @@ namespace AlgorithmsCenter.MessageTemplate
         /// Count stars on the right.
         /// </summary>
         private int rightStars = 0;
+
         #endregion
 
         #region Methods
@@ -97,14 +99,6 @@ namespace AlgorithmsCenter.MessageTemplate
                 "-description for more information about app\n" +
                 "-quit for exit app\n" +
                 "*******************************************************************");
-        }
-
-        /// <summary>
-        /// Fill algorithms list.
-        /// </summary>
-        protected void FillAlgorithmsList(string algorithm)
-        {
-            AlogirthmsList.Add(algorithm);
         }
 
         /// <summary>

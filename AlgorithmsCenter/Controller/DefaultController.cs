@@ -1,16 +1,16 @@
-﻿#region Usings
-using AlgorithmsCenter.Algorithms;
-using AlgorithmsCenter.MessageTemplate;
-using System;
-#endregion
-
-namespace AlgorithmsCenter.Controller
+﻿namespace AlgorithmsCenter.Controller
 {
+    #region Usings
+
+    using AlgorithmsCenter.Algorithms;
+    using AlgorithmsCenter.MessageTemplate;
+    using System;
+
+    #endregion
+
     public class DefaultController : CustomMessagesTemplate
     {
         #region Fields and variables
-
-        public FibonacciNumbers fibonacciNumbers { get; set; }
 
         /// <summary>
         /// if true, program is still runing
@@ -19,30 +19,37 @@ namespace AlgorithmsCenter.Controller
 
         #endregion
 
-        #region Constructor
+        #region Properties
 
         /// <summary>
-        /// Object constructor
+        /// Gets or sets the FibonacciNumbers algorithm.
         /// </summary>
-        public DefaultController()
+        public FibonacciNumbers FibonacciNumbers
         {
-            this.fibonacciNumbers = new FibonacciNumbers();
+            get
+            { 
+                return new FibonacciNumbers(); 
+            }
         }
 
         #endregion
 
+        #region Methods
+
         /// <summary>
-        /// Primary run app method
+        /// Primary run app method.
         /// </summary>
         public virtual void Run()
         {
-            CopyrightsInfo();
-            WelcomeMessage();
-            BasicInfo();
-            BasicCommands();
+            this.CopyrightsInfo();
+            this.FillAlgorithmsList();
+            this.WelcomeMessage();
+            this.BasicInfo();
+            this.BasicCommands();
         }
+
         /// <summary>
-        /// Catching basic commands
+        /// Basic commands.
         /// </summary>
         protected override void BasicCommands()
         {
@@ -74,6 +81,10 @@ namespace AlgorithmsCenter.Controller
                 }
             }
         }
+
+        /// <summary>
+        /// Algorithms commands.
+        /// </summary>
         private void AlgorithmsCommands()
         {
             HelpInfo();
@@ -84,7 +95,7 @@ namespace AlgorithmsCenter.Controller
                 switch (input)
                 {
                     case "-fibonacci":
-                        this.fibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
+                        this.FibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
                         loopContinue = false;
                         break;
                     case "-back":
@@ -101,5 +112,15 @@ namespace AlgorithmsCenter.Controller
             loopContinue = true;
             BasicCommands();
         }
+
+        /// <summary>
+        /// Fill algorithms list.
+        /// </summary>
+        protected void FillAlgorithmsList()
+        {
+            this.AlogirthmsList.Add(FibonacciNumbers.AlgorithmTitle);
+        }
+
+        #endregion
     }
 }

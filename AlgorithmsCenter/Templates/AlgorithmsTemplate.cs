@@ -1,7 +1,11 @@
-﻿using AlgorithmsCenter.MessageTemplate;
-
-namespace AlgorithmsCenter.Templates
+﻿namespace AlgorithmsCenter.Templates
 {
+    #region Usings
+
+    using AlgorithmsCenter.MessageTemplate;
+
+    #endregion
+
     public class AlgorithmsTemplate : CustomMessagesTemplate
     {
         #region Fields and variables
@@ -11,27 +15,17 @@ namespace AlgorithmsCenter.Templates
         #region properties
 
         /// <summary>
-        /// Name of algorithm.
-        /// </summary>
-        protected string AlgorithmTitle { get; set; }
-
-        /// <summary>
-        /// Description of algorithm.
-        /// </summary>
-        protected string AlgorithmDescription { get; set; }
-
-        /// <summary>
-        /// Path to plain text.
+        /// Gets or sets path to plain text.
         /// </summary>
         protected string PlainTextPath { get; set; }
 
         /// <summary>
-        /// Path to encrypt text save.
+        /// Gets or sets path to encrypt text save.
         /// </summary>
         protected string EncryptTextPath { get; set; }
 
         /// <summary>
-        /// Path to decrypt text save.
+        /// Gets or sets path to decrypt text save.
         /// </summary>
         protected string DecrypteTextPath { get; set; }
 

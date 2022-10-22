@@ -1,12 +1,14 @@
-﻿#region usings
-using AlgorithmsCenter.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-#endregion
-
-namespace AlgorithmsCenter.Algorithms
+﻿namespace AlgorithmsCenter.Algorithms
 {
+    #region Usings
+
+    using AlgorithmsCenter.Templates;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    #endregion
+
     public class FibonacciNumbers : AlgorithmsTemplate
     {
         #region Fields and Variables
@@ -16,15 +18,21 @@ namespace AlgorithmsCenter.Algorithms
         /// </summary>
         private bool correctInput = false;
 
+        /// <summary>
+        /// First numbers of Fibonacci.
+        /// </summary>
+        private List<int> FibonacciNumbersHelper = new List<int> { 0, 1, 1 };
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes object.
+        /// </summary>
         public FibonacciNumbers()
         {
             this.AlgorithmTitle = "Fibonacci Numbers";
             this.AlgorithmDescription = "First number is equal 0, second 1, every next is sum of two previously";
-            this.FillAlgorithmsList(this.AlgorithmTitle);
         }
 
         #endregion
@@ -32,21 +40,26 @@ namespace AlgorithmsCenter.Algorithms
         #region Properties
 
         /// <summary>
-        /// Input number to check if it is Fibonacci number.
+        /// Gets or sets the algorithm title.
         /// </summary>
-        protected int NumberToCheck { get; set; }
+        public string AlgorithmTitle { get; set; }
 
         /// <summary>
-        /// First numbers of Fibonacci.
+        /// Gets or sets the algorithm title.
         /// </summary>
-        private List<int> FibonacciNumbersHelper = new List<int> { 0, 1, 1 };
+        public string AlgorithmDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the input number to check if it is Fibonacci number.
+        /// </summary>
+        protected int NumberToCheck { get; set; }
 
         #endregion
 
         #region Methods
 
         /// <summary>
-        /// Check if number from user's input belongs to Fibonacci Numbers.
+        /// Check if number from user input belongs to Fibonacci Numbers.
         /// </summary>
         public void CheckIfNumberIsFibonacciNumbers()
         {
@@ -65,7 +78,7 @@ namespace AlgorithmsCenter.Algorithms
         }
 
         /// <summary>
-        /// Get number from user's input.
+        /// Get number from user input.
         /// </summary>
         private int GetFibonacciNumber()
         {
