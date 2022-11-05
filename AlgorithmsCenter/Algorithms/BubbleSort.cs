@@ -4,7 +4,7 @@
 
     using AlgorithmsCenter.Templates;
     using System;
-    using System.Collections.Generic;
+    using System.Diagnostics;
 
     #endregion
 
@@ -13,15 +13,6 @@
     /// </summary>
     public class BubbleSort : AlgorithmsTemplate
     {
-        #region Fields and Variables
-
-        /// <summary>
-        /// Numbers to sort from user input.
-        /// </summary>
-        private List<int> numbersToSort = new List<int>();
-
-        #endregion
-
         #region Constructor
 
         /// <summary>
@@ -29,7 +20,7 @@
         /// </summary>
         public BubbleSort()
         {
-            this.AlgorithmTitle = "Bubble sort";
+            this.AlgorithmTitle = "Bubble Sort";
             this.AlgorithmDescription = "Simplest sorting algorithm that works by repeatedly swapping the adjacent elements" +
                 " if they are in the wrong order";
         }
@@ -53,50 +44,47 @@
         #region Methods
 
         /// <summary>
-        /// Get number from user input.
+        /// The run method.
         /// </summary>
-        public void GetNumbersToSort()
+        public override void Run()
         {
-            int numberToInsert;
+            this.GetNumbersToSort();
+            Console.WriteLine("Start bubble sort algorithm");
+            this.BubbleSortAlgorithm();
+            Console.WriteLine("Sorted numbers: ");
+            this.PrintList(this.numbersToSort);
+        }
 
-            while (!this.stopInsert)
+        /// <summary>
+        /// Bubble sort algorithm implementation.
+        /// </summary>
+        private void BubbleSortAlgorithm()
+        {
+            int temp;
+            int count = this.numbersToSort.Count;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            while (count > 1)
             {
-                string input = default;
-
-                if (this.AlogirthmsList.Count > 2)
+                for (int i = 0; i < count - 1; i++)
                 {
-                    Console.WriteLine("If You want to break type: stop");
-                    input = Console.ReadLine();
-                }
-                if (input != "stop")
-                {
-                    while (numbersToSort.Count != 2)
+                    if (numbersToSort[i] > numbersToSort[i + 1])
                     {
-                        Console.WriteLine("If You want to break type: stop");
-                        Console.WriteLine("Please, insert the numbers to sort(at least 2): ");
-                        input = Console.ReadLine();
-                        if (input != "stop")
-                        {
-                            correctInput = int.TryParse(input, out numberToInsert);
-                            if (!correctInput)
-                            {
-                                Console.WriteLine("Wrong input! You need to write a number!");
-                            }
-                            else
-                            {
-                                numbersToSort.Add(numberToInsert);
-                            }
-                            this.PrintList("Actual numbers: " + this.numbersToSort);
-                        }
-                        else
-                        {
-                            this.stopInsert = true;
-                        }
+                        temp = numbersToSort[i + 1];
+                        numbersToSort[i + 1] = numbersToSort[i];
+                        numbersToSort[i] = temp;
                     }
                 }
-                this.stopInsert = true;
+
+                count = count - 1;
             }
+
+            stopwatch.Stop();
+            Console.WriteLine($"Algorithm takes: {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
-        #endregion
+       
     }
+    #endregion
 }

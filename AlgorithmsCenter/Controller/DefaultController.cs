@@ -107,12 +107,12 @@
                 {
                     case "-fibonacci":
                         this.AlgorithmInformations(this.FibonacciNumbers.AlgorithmDescription);
-                        this.FibonacciNumbers.CheckIfNumberIsFibonacciNumbers();
+                        this.FibonacciNumbers.Run();
                         this.loopContinue = false;
                         break;
                     case "-bubblesort":
                         this.AlgorithmInformations(this.BubbleSort.AlgorithmDescription);
-                        this.BubbleSort.GetNumbersToSort();
+                        this.BubbleSort.Run();
                         this.loopContinue = false;
                         break;
                     case "-back":

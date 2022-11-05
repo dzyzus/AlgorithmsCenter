@@ -8,7 +8,7 @@
 
     #endregion
 
-    public class AlgorithmsTemplate : CustomMessagesTemplate
+    public abstract class AlgorithmsTemplate : CustomMessagesTemplate
     {
         #region Fields and variables
 
@@ -21,6 +21,11 @@
         /// False until user decide to stop insert numbers.
         /// </summary>
         protected bool correctInput = false;
+
+        /// <summary>
+        /// Numbers to sort from user input.
+        /// </summary>
+        protected List<int> numbersToSort = new List<int>();
 
         #endregion
 
@@ -41,26 +46,81 @@
         /// </summary>
         protected string DecrypteTextPath { get; set; }
 
+
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// The run method.
+        /// </summary>
+        public abstract void Run();
+
+        /// <summary>
+        /// Get number from user input.
+        /// </summary>
+        protected void GetNumbersToSort()
+        {
+            int numberToInsert;
+            string input = string.Empty;
+
+            while (stopInsert != true)
+            {
+                Console.WriteLine("If You want to break type: stop");
+                if (numbersToSort.Count < 2)
+                {
+                    Console.WriteLine("Please, insert the numbers to sort(at least 2): ");
+                    this.PrintActualNumbersOnList();
+                }
+                Console.Write("Type number: ");
+                input = Console.ReadLine();
+                if (input != "stop")
+                {
+                    correctInput = int.TryParse(input, out numberToInsert);
+                    if (!correctInput)
+                    {
+                        Console.WriteLine("Wrong input! You need to write a number!");
+                        this.PrintActualNumbersOnList();
+                    }
+                    else
+                    {
+                        numbersToSort.Add(numberToInsert);
+                        this.PrintActualNumbersOnList();
+                    }
+                }
+
+                if (input == "stop")
+                {
+                    this.stopInsert = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Print list with data.
+        /// </summary>
         protected void PrintList(List<int> listToPrint)
         {
-            int count = listToPrint.Count;
             string output = string.Empty;
 
             //todo
             foreach(int item in listToPrint)
             {
-                if (listToPrint.Count == 1)
-                    Console.Write(item);
-                else
-                    if (listToPrint[count] != item)
-                        Console.WriteLine(item + ", ");
-                    else
-                        Console.WriteLine(item);
+                output += item + " ";
             }
+
+            Console.WriteLine(output);
+        }
+
+        /// <summary>
+        /// Print actual numbers on list.
+        /// </summary>
+        private void PrintActualNumbersOnList()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("Actual numbers on list: ");
+            this.PrintList(this.numbersToSort);
+            Console.ResetColor();
         }
 
         #endregion

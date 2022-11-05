@@ -57,13 +57,13 @@
         #region Methods
 
         /// <summary>
-        /// Check if number from user input belongs to Fibonacci Numbers.
+        /// The run method.
         /// </summary>
-        public void CheckIfNumberIsFibonacciNumbers()
+        public override void Run()
         {
-            FibonacciAlgorithm();
+            this.FibonacciAlgorithm();
 
-            if (FibonacciNumbersHelper.Contains(NumberToCheck))
+            if (this.FibonacciNumbersHelper.Contains(this.NumberToCheck))
             {
                 Console.WriteLine("That number belongs tu Fibonacci Numbers!\n");
                 return;
@@ -102,9 +102,9 @@
         /// </summary>
         private void FibonacciAlgorithm()
         {
-            this.NumberToCheck = GetFibonacciNumber();
+            this.NumberToCheck = this.GetFibonacciNumber();
 
-            while (FibonacciNumbersHelper.Last() <= this.NumberToCheck)
+            while (this.FibonacciNumbersHelper.Last() <= this.NumberToCheck)
             {
                 int lastNumberOnList = this.FibonacciNumbersHelper.Count();
                 this.FibonacciNumbersHelper.Add(
